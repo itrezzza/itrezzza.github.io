@@ -1,51 +1,42 @@
 <!DOCTYPE html>
-<html>
-  <head>
+<html lang="fa">
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <title>صفحه دانلود فایل‌ها</title>
     <style>
-      body {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-        margin: 0;
-        background-color: #f5f5f5;
-      }
-
-      h1 {
-        font-size: 2rem;
-        font-weight: 400;
-        color: #212121;
-        text-align: center;
-      }
-    </style>
-  </head>
-  <body>
-    <div class="container">
-      <h1 id="countdown">Finding a fresh MTP in 3 seconds...</h1>
-      <p style="text-align: center; font-size: 0.8rem; margin-top: 1rem;">Powered by <a href="" target="_blank" rel="noopener noreferrer">R</a></p>
-    </div>
-    <script>
-      const countdownElement = document.getElementById('countdown');
-      let secondsLeft = 3;
-      const intervalId = setInterval(() => {
-        secondsLeft--;
-        countdownElement.textContent = `Finding a fresh MTP in ${secondsLeft} second${secondsLeft !== 1 ? 's' : ''}...`;
-        if (secondsLeft === 0) {
-          clearInterval(intervalId);
-          fetch('https://raw.githubusercontent.com/yebekhe/MTProtoCollector/main/proxy/mtproto.json').then(response => response.json()).then(data => {
-            // Choose a random index from the array of URLs
-            const randomIndex = Math.floor(Math.random() * data.length);
-            const chosenItem = data[randomIndex];
-            // Modify the link by replacing 'https://t.me/' with 'tg://'
-            const modifiedLink = chosenItem.link.replace('https://t.me/', 'tg://');
-            window.location.href = modifiedLink; // Redirect to the modified URL
-          }).catch(error => console.error('Error fetching data:', error));
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
         }
-      }, 1000);
-    </script>
-  </body>
+        h1 {
+            color: #333;
+        }
+        .download-button {
+            display: inline-block;
+            margin: 10px;
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        .download-button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h1>به صفحه دانلود فایل‌ها خوش آمدید</h1>
+    <p>شما می‌توانید فایل‌های زیر را دانلود کنید:</p>
+    <a href="path/to/file1.pdf" class="download-button" download>دانلود فایل ۱ (PDF)</a>
+    <a href="path/to/file2.zip" class="download-button" download>دانلود فایل ۲ (ZIP)</a>
+    <a href="path/to/file3.jpg" class="download-button" download>دانلود فایل ۳ (تصویر)</a>
+    <br>
+    <p>لطفاً توجه داشته باشید که برای دانلود فایل‌ها، روی دکمه‌های زیر کلیک کنید.</p>
+</body>
 </html>
